@@ -9,8 +9,10 @@ class Load(Resource):
         #print(args)
         #a = request.get_json()
         print('*******', request.headers)
+        print(request.values)
         print(request.values['domain'])
         print(request.values.has_key('domain1'))
+        #print(request.args.has_key('domain1'))
         response = {
             "message":"OK:Load successful",
             "code":"EN000",
