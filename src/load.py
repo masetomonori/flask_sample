@@ -1,4 +1,4 @@
-#from flask import request
+from flask import request
 from flask_restful import reqparse, abort, Api, Resource
 
 class Load(Resource):
@@ -7,9 +7,10 @@ class Load(Resource):
         #print(request)
         #args = reqparse.RequestParser().parse_args()
         #print(args)
-        #print(request)
-        print(Resource)
-    
+        #a = request.get_json()
+        print('*******', request.headers)
+        print(request.values['domain'])
+        print(request.values.has_key('domain1'))
         response = {
             "message":"OK:Load successful",
             "code":"EN000",
