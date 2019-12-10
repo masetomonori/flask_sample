@@ -1,6 +1,7 @@
 import sys
 sys.path.append('../')
 from lib.common.SQLAccessor import SQLAccessor
+from load import Load
 
 from flask import Flask
 from flask_restful import reqparse, abort, Api, Resource
@@ -8,11 +9,11 @@ from flask_restful import reqparse, abort, Api, Resource
 app = Flask(__name__)
 api = Api(app)
 
-sqlAccessor = SQLAccessor()
+#sqlAccessor = SQLAccessor()
 
-query = 'select * from word limit 10'
-result = sqlAccessor.fetch(query)
-print(result[0])
+#query = 'select * from word limit 10'
+#result = sqlAccessor.fetch(query)
+#print(result[0])
 #print(result)
 
 TODOS = {
@@ -67,7 +68,7 @@ class TodoList(Resource):
 ##
 api.add_resource(TodoList, '/todos')
 api.add_resource(Todo, '/todos/<todo_id>')
-
+api.add_resource(Load, '/v1/load')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=3000)
